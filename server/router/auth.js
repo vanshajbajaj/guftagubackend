@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const router = express.Router();
 var nodemailer = require('nodemailer');
 const bcryptjs = require('bcryptjs');

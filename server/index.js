@@ -1,7 +1,7 @@
 const express = require('express');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const port = 8000;
 
 const db = require('./config/mongoose.js');
@@ -32,12 +32,14 @@ const app = express();
 //     next();
 // });
 
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-}));
+// app.use(cors({
+//     origin: '*',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     credentials: true,
+// }));
+
+app.use(cors());
 
 app.use(express.json({ limit: '50mb' }));
 app.use(cookieParser());
