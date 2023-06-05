@@ -1,7 +1,7 @@
 const express = require('express');
-const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const port = 8000;
 
 const db = require('./config/mongoose.js');
@@ -20,9 +20,10 @@ const app = express();
 // );  
 // app.use(express.json());
 
-// app.use(cors({
-//     origin: '*'
-// }));
+app.use(cors({
+    origin:["https://guftagublog.netlify.app"],
+    credentials: true,
+}));
 
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -31,15 +32,6 @@ const app = express();
 //     res.setHeader('Access-Control-Allow-Credentials', true);
 //     next();
 // });
-
-// app.use(cors({
-//     origin: '*',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-//     credentials: true,
-// }));
-
-app.use(cors());
 
 app.use(express.json({ limit: '50mb' }));
 app.use(cookieParser());

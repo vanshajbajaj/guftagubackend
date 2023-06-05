@@ -10,8 +10,6 @@ const ObjectId = require('mongodb').ObjectId;
 
 require("./../config/mongoose");
 
-router.use(cors());
-
 const User = require("./../models/User");
 const Post = require("./../models/Post");
 const authenticate = require('../middleware/authenticate');
